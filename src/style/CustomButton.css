@@ -1,0 +1,35 @@
+.custom-btn {
+  cursor: pointer;
+  border-radius: 50px;
+  background-color: #73672f;
+  color: white;
+  border: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.custom-btn .custom-btn_children {
+  z-index: 100;
+  margin: 0 auto;
+}
+.custom-btn span {
+  width: 0;
+  height: 100%;
+  background-color: #a0904b;
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  left: -100%;
+  border-radius: inherit;
+  -webkit-transition: all 0.7s ease;
+  transition: all 0.7s ease;
+}
+.custom-btn:hover span {
+  width: 100%;
+  left: 0;
+}

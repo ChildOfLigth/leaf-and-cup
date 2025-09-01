@@ -1,0 +1,61 @@
+header {
+  width: 100%;
+  height: 50px;
+  padding: 30px 0;
+  display: flex;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 1000;
+  overflow: hidden;
+
+  .header-content {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .header-content_logo-block {
+      display: flex;
+      align-items: center;
+      width: 20%;
+      cursor: pointer;
+
+      p {
+        color: #73672f;
+        font-size: 25px;
+        font-weight: 600;
+        font-family: "Edu NSW ACT Cursive", cursive;
+      }
+
+      .logo {
+        width: 22%;
+      }
+    }
+
+    a {
+      font-size: 25px;
+      color: black;
+      transition: all 0.4s;
+
+      &:hover {
+        color: #73672f;
+      }
+    }
+
+    .header-content_block-with-actions {
+      width: 15%;
+      display: flex;
+      gap: 30px;
+
+      .icon {
+        cursor: pointer;
+        width: 13%;
+        &:hover {
+          fill: #73672f;
+        }
+      }
+    }
+  }
+}
