@@ -4,7 +4,8 @@ import logo from "../../public/logo.svg";
 import facebookIcon from "../assets/imgs/icons/facebook.svg";
 import instagramIcon from "../assets/imgs/icons/instagram.svg";
 import telegramIcon from "../assets/imgs/icons/telegram.svg";
-import "../style/Footer.css";
+import "../style/Footer.scss";
+import { NavigationLink } from "./NavigationLink";
 
 export function Footer(): JSX.Element {
   return (
@@ -13,7 +14,6 @@ export function Footer(): JSX.Element {
         <div className="footer_content">
           <div className="footer_content_top-part">
             <ul className="top-part_social-media">
-              <h4>Соцсети</h4>
 
               <li className="social-media_link">
                 <img
@@ -21,7 +21,7 @@ export function Footer(): JSX.Element {
                   alt="facebookIcon"
                   className="link_icon-social-media"
                 />
-                <p>@leafandcup</p>
+                <address>@leafandcup</address>
               </li>
 
               <li className="social-media_link">
@@ -30,7 +30,7 @@ export function Footer(): JSX.Element {
                   alt="instagramIcon"
                   className="link_icon-social-media"
                 />
-                <p>@leafcup_tea</p>
+                <address>@leafcup_tea</address>
               </li>
 
               <li className="social-media_link">
@@ -39,11 +39,11 @@ export function Footer(): JSX.Element {
                   alt="telegramIcon"
                   className="link_icon-social-media"
                 />
-                <p>@leafcup_official</p>
+                <address>@leafcup_official</address>
               </li>
             </ul>
 
-            <Link to="leaf-and-cup/list-of-allGoods">Весь ассортимент</Link>
+            <NavigationLink />
           </div>
 
           <div className="footer_content_bottom-part">

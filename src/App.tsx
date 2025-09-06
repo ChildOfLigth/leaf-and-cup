@@ -1,4 +1,4 @@
-import { JSX } from "react";
+import { Dispatch, JSX, SetStateAction, useState, useEffect } from "react";
 import { Routes, BrowserRouter, Route, useNavigate } from "react-router-dom";
 import { CustomButton } from "./components/CustomButton";
 import { ProductList } from "./components/ProductList.tsx";
@@ -6,19 +6,23 @@ import { ListOfAllGoods } from "./components/ListOfAllGoods.tsx";
 import { Header } from "./components/Header.tsx";
 import { Footer } from "./components/Footer.tsx";
 import { WishList } from "./components/WishList.tsx";
-import { previewProducts } from "./productList.ts";
-import "./style/App.css";
-import "./style/resetDefaultStyle.css";
+import { previewProducts, ProductObject } from "./productList.ts";
 import photoForPresentBlock from "./assets/imgs/photo-for-presentBlock.webp";
 import photoForAboutUs from "./assets/imgs/photo-for-aboutUs-block.webp";
 import photoLocationBlock from "./assets/imgs/photoLocationBlock.webp";
+import { MenuBurger } from "./components/MenuBurger.tsx";
+import "./style/App.scss";
+import "./style/resetDefaultStyle.css";
 
-function AppContent(): JSX.Element {
+interface AppPropsType {
+  funcChengeWishList: Dispatch<SetStateAction<ProductObject[]>>;
+}
+
+function AppContent({ funcChengeWishList }: AppPropsType): JSX.Element {
   const navigate = useNavigate();
 
   return (
-    <div className="App">
-      <main>
+    <main className="App">
         <div className="present-block">
           <div className="present-block_information-block">
             <h1>Leaf & Cup</h1>
@@ -44,7 +48,10 @@ function AppContent(): JSX.Element {
           />
         </div>
 
-        <ProductList arrayWithProducts={previewProducts} />
+        <ProductList
+          arrayWithProducts={previewProducts}
+          functToChangeList={funcChengeWishList}
+        />
 
         <div className="aboutUs">
           <ul className="aboutUs_frst-column">
@@ -87,7 +94,7 @@ function AppContent(): JSX.Element {
                 </p>
               </div>
             </li>
-            
+
             <li>
               <p className="column_index">4</p>
               <div className="column_text-content">
@@ -106,29 +113,50 @@ function AppContent(): JSX.Element {
 
           <div className="img">
             <img src={photoLocationBlock} alt="decorate" />
-            <img src={photoLocationBlock} alt="back-part-decoration" className="back-part-decoration"/>
+            <img
+              src={photoLocationBlock}
+              alt="back-part-decoration"
+              className="back-part-decoration"
+            />
           </div>
         </div>
-      </main>
-    </div>
+    </main>
   );
 }
-
 export default function App() {
+  const [wishList, setWishList] = useState<ProductObject[]>(() => {
+    const saved = localStorage.getItem("storage-with-wish-list");
+    return saved ? JSON.parse(saved) : [];
+  });
+
+  const [activeMenuBurger, setActiveMenuBurger] = useState<boolean>(false);
+
+  useEffect(() => {
+    localStorage.setItem("storage-with-wish-list", JSON.stringify(wishList));
+  }, [wishList]);
+
   return (
-    <>
-      <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route path="/leaf-and-cup" element={<AppContent />} />
-          <Route
-            path="/leaf-and-cup/list-of-allGoods"
-            element={<ListOfAllGoods />}
-          />
-          <Route path="/leaf-and-cup/wish-list" element={<WishList />}/>
-        </Routes>
-        <Footer />
-      </BrowserRouter>
-    </>
+    <BrowserRouter>
+      <Header activeMenuBurger={activeMenuBurger} toggleModal={setActiveMenuBurger}/>
+      <Routes>
+        <Route
+          path="/leaf-and-cup"
+          element={<AppContent funcChengeWishList={setWishList} />}
+        />
+        <Route
+          path="/leaf-and-cup/list-of-allGoods"
+          element={<ListOfAllGoods functToChangeList={setWishList} />}
+        />
+        <Route
+          path="/leaf-and-cup/wish-list"
+          element={
+            <WishList wishList={wishList} functToChangeList={setWishList} />
+          }
+        />
+      </Routes>
+
+      <MenuBurger activeMenuBurger={activeMenuBurger}/>
+      <Footer />
+    </BrowserRouter>
   );
 }

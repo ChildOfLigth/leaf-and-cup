@@ -1,5 +1,5 @@
 import React, { JSX, RefObject } from "react";
-import '../style/CustomButton.css';
+import '../style/CustomButton.scss';
 
 type ComponentProps = {
     children: React.ReactNode,

@@ -18,7 +18,7 @@ footer {
 
     .footer_content_top-part {
       display: flex;
-      align-items: top;
+      align-items: flex-start;
       justify-content: left;
       gap: 50px;
       width: 100%;
@@ -37,6 +37,7 @@ footer {
           display: flex;
           align-items: center;
           gap: 10px;
+          line-height: 2;
 
           .link_icon-social-media {
             width: 24px;
@@ -53,9 +54,9 @@ footer {
 
       a {
         color: black;
+        font-weight: 600;
         font-size: 1.05em;
         transition: all 0.5s;
-        height: auto;
 
         &:hover {
           color: App.$main_color;
