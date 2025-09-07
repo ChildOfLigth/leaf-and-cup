@@ -33,8 +33,6 @@ export function Header({activeMenuBurger, toggleModal}: HeaderProps): JSX.Elemen
     }
   }, [location.pathname]);
 
-  console.log(activeMenuBurger)
-
   return (
     <>
       <header>

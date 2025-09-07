@@ -8,7 +8,6 @@ interface MenuBurgerProps {
 }
 
 export function MenuBurger({activeMenuBurger}: MenuBurgerProps): JSX.Element {
-  console.log(activeMenuBurger)
   return (
     <div className="menu-burger" style={{display: activeMenuBurger == true ? 'block' : 'none'}}>
       <div className="darkening-of-excess-content"></div>
