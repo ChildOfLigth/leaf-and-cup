@@ -1,8 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive:wght@400..700&display=swap");
 
 $shadow-for-img: drop-shadow(0 10px 8px rgba(128, 128, 128, 60%));
-$main_color: #73672f;
+$frst_main_color: #73672f;
+$secnd_main_color: #535231;
+$third_main_color: #a0904b;
 
 .App {
   background-color: white;
@@ -25,17 +27,18 @@ $main_color: #73672f;
     .present-block_information-block {
       width: 40%;
       h1 {
-        color: $main_color;
+        color: $frst_main_color;
         margin-bottom: 16px;
         font-size: 2.3em;
         font-weight: 600;
         font-family: "Edu NSW ACT Cursive", cursive;
       }
-      
+
       p {
         font-size: 1.3em;
         line-height: 1.5;
         margin: 40px 0;
+        color: $secnd_main_color;
       }
     }
 
@@ -64,25 +67,27 @@ $main_color: #73672f;
         margin-bottom: 50px;
         position: relative;
         width: 100%;
-
-        .column_index {
-          font-size: 3.94em;
-          font-weight: bold;
-          color: rgba(115, 103, 47, 70%);
-          position: absolute;
-          top: -25px;
-          left: -10px;
-          z-index: 10;
-        }
+        color: $secnd_main_color;
 
         .column_text-content {
-          h3 {
-            font-size: 1.4em;
-            line-height: 1.5;
-            font-weight: 600;
-            margin-bottom: 13px;
-            z-index: 100;
-            position: relative;
+          .text-content_title {
+            display: flex;
+            align-items: center;
+            gap: 0.45em;
+
+            .title-column_index {
+              font-size: 3.94em;
+              font-weight: bold;
+              color: rgba(115, 103, 47, 70%);
+              z-index: 10;
+            }
+
+            h3 {
+              font-size: 1.4em;
+              line-height: 1.5;
+              font-weight: 600;
+              z-index: 100;
+            }
           }
 
           p {
@@ -103,7 +108,7 @@ $main_color: #73672f;
   .cafe-location {
     width: 80%;
     height: 300px;
-    margin: 90px auto;
+    margin: 90px auto 130px auto;
     border-radius: 30px;
     background-color: rgba(115, 103, 47, 60%);
     display: flex;
@@ -142,7 +147,7 @@ $main_color: #73672f;
         width: 200%;
         height: 100%;
         z-index: 100;
-        filter: drop-shadow(5px 9px 15px $main_color);
+        filter: drop-shadow(5px 9px 15px $frst_main_color);
 
         &.back-part-decoration {
           position: absolute;

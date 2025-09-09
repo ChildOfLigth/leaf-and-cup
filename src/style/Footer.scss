@@ -7,6 +7,8 @@ footer {
   width: 100%;
   padding: 50px 0;
   font-size: clamp(1rem, 1.4rem, 2.2rem);
+  background-color: App.$secnd_main_color;
+  color: white;
 
   .footer_content {
     display: flex;
@@ -27,7 +29,7 @@ footer {
         width: 25%;
 
         h4 {
-          color: App.$main_color;
+          color: App.$frst_main_color;
           font-size: 1.12em;
           font-weight: 600;
           margin-bottom: 20px;
@@ -39,28 +41,25 @@ footer {
           gap: 10px;
           line-height: 2;
 
-          .link_icon-social-media {
-            width: 24px;
-            height: 24px;
+          svg {
+            width: 20px;
+            height: 20px;
+            fill: white;
           }
 
           p {
             font-size: inherit;
             line-height: 33px;
-            color: black;
+            cursor: pointer;
           }
         }
       }
 
       a {
-        color: black;
         font-weight: 600;
         font-size: 1.05em;
         transition: all 0.5s;
-
-        &:hover {
-          color: App.$main_color;
-        }
+        color: white;
       }
     }
 
@@ -80,7 +79,7 @@ footer {
         h4 {
           font-size: 1.1em;
           font-weight: 600;
-          color: App.$main_color;
+          color: white;
           margin: 20px 0;
           font-family: "Edu NSW ACT Cursive", cursive;
         }
@@ -94,7 +93,7 @@ footer {
         content: "";
         width: 100%;
         height: 2px;
-        background-color: App.$main_color;
+        background-color: App.$third_main_color;
         position: absolute;
         top: 0;
       }

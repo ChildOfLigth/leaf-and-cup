@@ -7,5 +7,5 @@ type ComponentProps = {
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 export function CustomButton ({children, ...props}: ComponentProps): JSX.Element {
-    return <button className="custom-btn" {...props}><div className="custom-btn_children">{children}</div><span></span></button>
+    return <button className="custom-btn" {...props}><div className="custom-btn_children">{children}</div></button>
 }

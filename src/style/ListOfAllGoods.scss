@@ -21,17 +21,18 @@
       height: auto;
 
       h2 {
-        font-size: 30px;
+        font-size: 32px;
         font-weight: 600;
-        color: App.$main_color;
+        color: App.$secnd_main_color;
         margin-bottom: 25px;
       }
 
       p {
         font-size: 24px;
         line-height: 36px;
+        color: App.$secnd_main_color;
         span {
-          color: App.$main_color;
+          color: App.$third_main_color;
           font-family: "Edu NSW ACT Cursive", cursive;
           font-weight: 600;
         }

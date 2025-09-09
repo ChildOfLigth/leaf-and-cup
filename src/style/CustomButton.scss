@@ -1,35 +1,23 @@
+@use 'App';
+
 .custom-btn {
   cursor: pointer;
   border-radius: 50px;
-  background-color: #73672f;
+  background-color: App.$frst_main_color;
   color: white;
   border: none;
   display: flex;
   align-items: center;
   position: relative;
   overflow: hidden;
+  transition: all 0.4s;
 
   .custom-btn_children {
     z-index: 100;
     margin: 0 auto;
   }
 
-  span {
-    width: 0;
-    height: 100%;
-    background-color: #a0904b;
-    z-index: 10;
-    position: absolute;
-    top: 0;
-    left: -100%;
-    border-radius: inherit;
-    transition: all 0.7s ease;
-  }
-
   &:hover {
-    span {
-      width: 100%;
-      left: 0;
-    }
+    background-color: App.$third_main_color;
   }
 }

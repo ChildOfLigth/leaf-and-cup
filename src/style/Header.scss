@@ -1,3 +1,5 @@
+@use 'App';
+
 header {
   width: 100%;
   height: 10vh;
@@ -7,7 +9,7 @@ header {
   position: sticky;
   top: 0;
   background-color: white;
-  z-index: 100;
+  z-index: 1000;
   overflow: hidden;
   font-size: clamp(16px, 1vw + 2px, 30px);
 
@@ -38,12 +40,13 @@ header {
 
     a {
       font-size: 1.3em;
-      color: black;
+      font-weight: 600;
+      color: App.$frst_main_color;
       transition: all 0.4s;
       user-select: none;
 
       &:hover {
-        color: #73672f;
+        color: App.$secnd_main_color;
       }
     }
 
@@ -53,11 +56,18 @@ header {
       max-width: 340px;
       display: flex;
       align-items: center;
-      gap: 1.2em;
+      gap: 1em;
 
       svg,
       a {
-        width: 14%;
+        width: 12%;
+      }
+
+      svg {
+        cursor: pointer;
+        path {
+          fill: #73672f;
+        }
       }
 
       a {
@@ -65,29 +75,6 @@ header {
         align-items: center;
         svg {
           width: 100%;
-        }
-
-        &.activeLink {
-          svg {
-            path {
-              fill: #73672f;
-            }
-          }
-        }
-      }
-
-      svg {
-        cursor: pointer;
-
-        path {
-          fill: black;
-          transition: all 0.5s ease;
-        }
-
-        &:hover {
-          path {
-            fill: #73672f;
-          }
         }
       }
     }
@@ -125,7 +112,7 @@ header {
     .header-content {
       .header-content_logo-block {
         p {
-          font-size: inherit
+          font-size: inherit;
         }
       }
 
