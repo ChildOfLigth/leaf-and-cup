@@ -13,8 +13,10 @@
   transition: all 0.4s;
 
   .custom-btn_children {
-    z-index: 100;
     margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   &:hover {

@@ -1,6 +1,5 @@
 import { JSX } from "react";
 import { Link } from "react-router";
-import { NavigationLink } from "./NavigationLink";
 import '../style/MenuBurger.scss'
 
 interface MenuBurgerProps {
@@ -10,10 +9,8 @@ interface MenuBurgerProps {
 export function MenuBurger({activeMenuBurger}: MenuBurgerProps): JSX.Element {
   return (
     <div className="menu-burger" style={{display: activeMenuBurger == true ? 'block' : 'none'}}>
-      <div className="darkening-of-excess-content"></div>
-      <nav className="header-content-menu-burger">
-        <NavigationLink />
-
+      <div className="menu-burger_darkening-of-excess-content"></div>
+      <nav className="menu-burger_content-menu-burger">
         <div className="content-menu-burger_navigation-to-wish-list">
             <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
               <g clipPath="url(#clip0_73_4)">

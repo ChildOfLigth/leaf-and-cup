@@ -6,11 +6,12 @@ import { ListOfAllGoods } from "./components/ListOfAllGoods.tsx";
 import { Header } from "./components/Header.tsx";
 import { Footer } from "./components/Footer.tsx";
 import { WishList } from "./components/WishList.tsx";
+import { MenuBurger } from "./components/MenuBurger.tsx";
 import { previewProducts, ProductObject } from "./productList.ts";
 import photoForPresentBlock from "./assets/imgs/photo-for-presentBlock.webp";
 import photoForAboutUs from "./assets/imgs/photo-for-aboutUs-block.webp";
 import photoLocationBlock from "./assets/imgs/photoLocationBlock.webp";
-import { MenuBurger } from "./components/MenuBurger.tsx";
+import photoForPresentBlockMobileVersion from "./assets/imgs/photo-for-presentBlock_small-screen.webp";
 import "./style/App.scss";
 import "./style/resetDefaultStyle.css";
 
@@ -20,32 +21,72 @@ interface AppPropsType {
 
 function AppContent({ funcChengeWishList }: AppPropsType): JSX.Element {
   const navigate = useNavigate();
+  const [activateMobileVersion, setActivateMobileVersion] =
+    useState<boolean>(false);
+
+  useEffect(() => {
+    const activateMobileVersion = () => {
+      setActivateMobileVersion(window.innerWidth <= 850);
+    };
+
+    activateMobileVersion();
+    window.addEventListener("resize", activateMobileVersion);
+
+    return () => window.removeEventListener("resize", activateMobileVersion);
+  }, []);
 
   return (
     <main className="App">
       <div className="present-block">
-        <div className="present-block_information-block">
-          <h1>Leaf & Cup</h1>
-          <p>
-            В Leaf & Cup мы верим, что чай — это больше, чем просто напиток —
-            это момент спокойствия, ритуал связи и источник вдохновения. Наше
-            кафе было создано как уютное пространство, где вы можете отдохнуть
-            от городской суеты, насладиться ароматом тщательно отобранных чаев и
-            поделиться разговорами за чашкой дымящегося чая.
-          </p>
-          <CustomButton
-            style={{ width: "300px", height: "70px", fontSize: "1.1em" }}
-            onClick={() => navigate("/leaf-and-cup/list-of-allGoods")}
-          >
-            Каталог
-          </CustomButton>
-        </div>
+        {activateMobileVersion === false ? (
+          <>
+            <div className="present-block_information-block">
+              <h1 className="information-block_title">Leaf & Cup</h1>
+              <p className="information-block_description">
+                В Leaf & Cup мы верим, что чай — это больше, чем просто напиток
+                — это момент спокойствия, ритуал связи и источник вдохновения.
+                Наше кафе было создано как уютное пространство, где вы можете
+                отдохнуть от городской суеты, насладиться ароматом тщательно
+                отобранных чаев и поделиться разговорами за чашкой дымящегося
+                чая.
+              </p>
+              <CustomButton
+                onClick={() => navigate("/leaf-and-cup/list-of-allGoods")}
+              >
+                Каталог
+              </CustomButton>
+            </div>
 
-        <img
-          src={photoForPresentBlock}
-          alt="cap-of-tea"
-          className="photo-for-presentBlock"
-        />
+            <img
+              src={photoForPresentBlock}
+              alt="cap-of-tea"
+              className="photo-for-presentBlock"
+            />
+          </>
+        ) : (
+          <>
+            <div className="photo-for-presentBlock">
+              <img src={photoForPresentBlockMobileVersion} alt="cap-of-tea" />
+            </div>
+
+            <div className="present-block_information-block">
+              <h1 className="information-block_title">Leaf & Cup</h1>
+              <p className="information-block_description">
+                В Leaf & Cup мы верим, что чай — это больше, чем просто напиток
+                — это момент спокойствия, ритуал связи и источник вдохновения.
+                Наше кафе было создано как уютное пространство, где вы можете
+                отдохнуть от городской суеты, насладиться ароматом тщательно
+                отобранных чаев и поделиться разговорами за чашкой дымящегося
+                чая.
+              </p>
+              <CustomButton
+                onClick={() => navigate("/leaf-and-cup/list-of-allGoods")}
+              >
+                Каталог
+              </CustomButton>
+            </div>
+          </>
+        )}
       </div>
 
       <ProductList
@@ -54,11 +95,11 @@ function AppContent({ funcChengeWishList }: AppPropsType): JSX.Element {
       />
 
       <div className="aboutUs">
-        <ul className="aboutUs_frst-column">
+        <ul className="aboutUs_column">
           <li>
             <div className="column_text-content">
               <div className="text-content_title">
-                <p className="title-column_index">1</p>
+                <p className="title_column-index">1</p>
                 <h3>Редкие сорта чая</h3>
               </div>
               <p>
@@ -70,7 +111,7 @@ function AppContent({ funcChengeWishList }: AppPropsType): JSX.Element {
           <li>
             <div className="column_text-content">
               <div className="text-content_title">
-                <p className="title-column_index">2</p>
+                <p className="title_column-index">2</p>
                 <h3>Высокое качество каждого заваривания</h3>
               </div>
 
@@ -88,11 +129,11 @@ function AppContent({ funcChengeWishList }: AppPropsType): JSX.Element {
           className="aboutUs_decoratePhoto"
         />
 
-        <ul className="aboutUs_second-column">
+        <ul className="aboutUs_column">
           <li>
             <div className="column_text-content">
               <div className="text-content_title">
-                <p className="title-column_index">3</p>
+                <p className="title_column-index">3</p>
                 <h3>Уютная атмосфера</h3>
               </div>
 
@@ -106,7 +147,7 @@ function AppContent({ funcChengeWishList }: AppPropsType): JSX.Element {
           <li>
             <div className="column_text-content">
               <div className="text-content_title">
-                <p className="title-column_index">4</p>
+                <p className="title_column-index">4</p>
                 <h3>Дружелюбный сервис</h3>
               </div>
 
@@ -116,10 +157,11 @@ function AppContent({ funcChengeWishList }: AppPropsType): JSX.Element {
         </ul>
       </div>
 
-      <div className="cafe-location">
-        <div className="location_text">
+      <div className="cafe-location" id="cafe-location">
+        <div className="cafe-location_text-content">
           <h3>Найди свой любимый вкус чая в Leaf & Cup!</h3>
           <p>Киев ул. Броварская 33</p>
+          <p>+(380)-98-230-78-98</p>
         </div>
 
         <div className="img">

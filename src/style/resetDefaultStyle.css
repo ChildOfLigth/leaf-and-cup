@@ -31,6 +31,7 @@ body {
   -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   font-family: "Montserrat", sans-serif;
+  overflow-x: hidden;
 }
 
 input,
@@ -43,6 +44,7 @@ input::-ms-clear {
 }
 button {
   cursor: pointer;
+  border: none;
 }
 a,
 a:visited {

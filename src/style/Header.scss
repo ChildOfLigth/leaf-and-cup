@@ -1,148 +1,113 @@
-@use 'App';
+@use "App";
 
 header {
   width: 100%;
-  height: 10vh;
-  padding: 40px 0;
+  height: 8vh;
+  min-height: 48px;
   display: flex;
   justify-content: center;
   position: sticky;
   top: 0;
-  background-color: white;
   z-index: 1000;
   overflow: hidden;
   font-size: clamp(16px, 1vw + 2px, 30px);
+  background-color: white;
 
   .header-content {
     width: 90%;
+    height: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    gap: 50px;
 
     .header-content_logo-block {
-      display: flex;
-      align-items: center;
-      width: 20%;
-
-      p {
-        color: #73672f;
-        font-size: 1.2em;
-        line-height: 1.5;
-        font-weight: 600;
-        font-family: "Edu NSW ACT Cursive", cursive;
-      }
-
-      .logo {
-        width: 22%;
-        min-width: 60px;
-      }
+      width: 4%;
+      min-width: 45px;
     }
 
-    a {
-      font-size: 1.3em;
-      font-weight: 600;
-      color: App.$frst_main_color;
-      transition: all 0.4s;
-      user-select: none;
-
-      &:hover {
-        color: App.$secnd_main_color;
-      }
-    }
-
-    .header-content_block-with-actions {
-      width: 12%;
-      min-width: 130px;
-      max-width: 340px;
+    .header-content_navigation {
       display: flex;
       align-items: center;
-      gap: 1em;
+      width: 43%;
+      height: 80%;
+      min-width: 530px;
+      gap: 20px;
 
-      svg,
-      a {
-        width: 12%;
-      }
-
-      svg {
-        cursor: pointer;
-        path {
-          fill: #73672f;
-        }
-      }
-
-      a {
+      .navigation_link-block {
         display: flex;
         align-items: center;
-        svg {
-          width: 100%;
-        }
-      }
-    }
-  }
-}
-
-@media (max-width: 944px) {
-  header {
-    .header-content {
-      .header-content_logo-block {
-        p {
-          font-size: 1.15em;
-        }
-      }
-
-      a {
-        font-size: 1.2em;
-      }
-
-      .header-content_block-with-actions {
-        gap: 0;
         justify-content: space-between;
+        background-color: #d4cfb7;
+        border-radius: 50px;
+        width: 92%;
+        height: 85%;
+        padding: 20px 4.2em;
 
-        svg,
         a {
-          width: 17%;
+          font-size: 1em;
+          color: App.$frst_main_color;
+          transition: all 0.4s;
+          user-select: none;
+          cursor: pointer;
+        }
+      }
+
+      .navigation_navigate-to-wishList {
+        width: 5.5%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        svg {
+          height: 100%;
+          width: auto;
+          fill: App.$frst_main_color;
+          transition: all 0.3s;
+          display: block;
+        }
+
+        &.active {
+          svg {
+            fill: App.$third_main_color;
+          }
         }
       }
     }
-  }
-}
 
-@media (max-width: 670px) {
-  header {
-    .header-content {
-      .header-content_logo-block {
-        p {
-          font-size: inherit;
-        }
+    .header-content_open-menu-burger {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      width: 7%;
+      height: 80%;
+      min-width: 45px;
+      cursor: pointer;
+
+      span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: App.$secnd_main_color;
       }
+    }
 
-      .header-content_open-menu-burger {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
-        width: 12%;
-        height: 80%;
-        cursor: pointer;
-
-        span {
-          display: block;
-          width: 100%;
-          height: 2px;
-          background-color: black;
-        }
+    @media (max-width: 740px) {
+      & {
+        justify-content: space-between;
       }
+    }
 
-      .header-content-menu-burger {
-        position: absolute;
-        top: 30px;
-        margin: 0 auto;
-        flex-direction: column;
-        align-items: center;
-        width: 70%;
-        height: auto;
-        padding: 20px;
+    @media (max-width: 1424px) {
+      &.header-content_navigation {
+        width: 50%;
+
+        .navigation_navigate-to-wishList {
+          min-width: 30px;
+        }
       }
     }
   }
