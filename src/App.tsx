@@ -164,13 +164,8 @@ function AppContent({ funcChengeWishList }: AppPropsType): JSX.Element {
           <p>+(380)-98-230-78-98</p>
         </div>
 
-        <div className="img">
-          <img src={photoLocationBlock} alt="decorate" />
-          <img
-            src={photoLocationBlock}
-            alt="back-part-decoration"
-            className="back-part-decoration"
-          />
+        <div className="cafe-location_img">
+          <img src={photoLocationBlock} alt="Photo for location block"/>
         </div>
       </div>
     </main>
