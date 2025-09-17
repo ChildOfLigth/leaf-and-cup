@@ -15,7 +15,6 @@ export function ProductList({
   functToChangeList,
 }: ProductListProps): JSX.Element {
   const [activeBtn, setActiveBtn] = useState<number | null | undefined>(null);
-  const [activateColumnList, setActivateColumnList] = useState<boolean>(false);
 
   function addProdToWishList(id: number) {
     const wishList = functToChangeList!((prev: ProductObject[]) => [
@@ -24,16 +23,6 @@ export function ProductList({
     ]);
     localStorage.setItem("storage-with-wish-list", JSON.stringify(wishList));
   }
-
-  useEffect(() => {
-    const activateColumnList = () => {
-      setActivateColumnList(window.innerWidth <= 700);
-    };
-
-    window.addEventListener("resize", activateColumnList);
-
-    return () => window.removeEventListener("resize", activateColumnList);
-  }, []);
 
   return (
     <ul className="productList">
