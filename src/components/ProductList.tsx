@@ -1,4 +1,4 @@
-import { JSX, Dispatch, SetStateAction, useState, useEffect } from "react";
+import { JSX, Dispatch, SetStateAction, useState } from "react";
 import { CustomButton } from "./CustomButton";
 import { ProductObject } from "../productList.ts";
 import "../style/ProductList.scss";
