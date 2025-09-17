@@ -37,56 +37,27 @@ function AppContent({ funcChengeWishList }: AppPropsType): JSX.Element {
 
   return (
     <main className="App">
-      <div className="present-block">
-        {activateMobileVersion === false ? (
-          <>
-            <div className="present-block_information-block">
-              <h1 className="information-block_title">Leaf & Cup</h1>
-              <p className="information-block_description">
-                В Leaf & Cup мы верим, что чай — это больше, чем просто напиток
-                — это момент спокойствия, ритуал связи и источник вдохновения.
-                Наше кафе было создано как уютное пространство, где вы можете
-                отдохнуть от городской суеты, насладиться ароматом тщательно
-                отобранных чаев и поделиться разговорами за чашкой дымящегося
-                чая.
-              </p>
-              <CustomButton
-                onClick={() => navigate("/leaf-and-cup/list-of-allGoods")}
-              >
-                Каталог
-              </CustomButton>
-            </div>
-
-            <img
-              src={photoForPresentBlock}
-              alt="cap-of-tea"
-              className="photo-for-presentBlock"
-            />
-          </>
-        ) : (
-          <>
-            <div className="photo-for-presentBlock">
-              <img src={photoForPresentBlockMobileVersion} alt="cap-of-tea" />
-            </div>
-
-            <div className="present-block_information-block">
-              <h1 className="information-block_title">Leaf & Cup</h1>
-              <p className="information-block_description">
-                В Leaf & Cup мы верим, что чай — это больше, чем просто напиток
-                — это момент спокойствия, ритуал связи и источник вдохновения.
-                Наше кафе было создано как уютное пространство, где вы можете
-                отдохнуть от городской суеты, насладиться ароматом тщательно
-                отобранных чаев и поделиться разговорами за чашкой дымящегося
-                чая.
-              </p>
-              <CustomButton
-                onClick={() => navigate("/leaf-and-cup/list-of-allGoods")}
-              >
-                Каталог
-              </CustomButton>
-            </div>
-          </>
-        )}
+      <div className={activateMobileVersion ? "present-block mobile-version" : 'present-block'}>
+        <div className="present-block_information-block">
+          <h1 className="information-block_title">Leaf & Cup</h1>
+          <p className="information-block_description">
+            В Leaf & Cup мы верим, что чай — это больше, чем просто напиток —
+            это момент спокойствия, ритуал связи и источник вдохновения. Наше
+            кафе было создано как уютное пространство, где вы можете отдохнуть
+            от городской суеты, насладиться ароматом тщательно отобранных чаев и
+            поделиться разговорами за чашкой дымящегося чая.
+          </p>
+          <CustomButton
+            onClick={() => navigate("/leaf-and-cup/list-of-allGoods")}
+          >
+            Каталог
+          </CustomButton>
+        </div>
+        <img
+          src={activateMobileVersion ? photoForPresentBlockMobileVersion : photoForPresentBlock}
+          alt="cap-of-tea"
+          className="photo-for-presentBlock"
+        />
       </div>
 
       <ProductList
@@ -165,7 +136,7 @@ function AppContent({ funcChengeWishList }: AppPropsType): JSX.Element {
         </div>
 
         <div className="cafe-location_img">
-          <img src={photoLocationBlock} alt="Photo for location block"/>
+          <img src={photoLocationBlock} alt="Photo for location block" />
         </div>
       </div>
     </main>

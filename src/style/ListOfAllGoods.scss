@@ -13,9 +13,17 @@
     align-items: center;
     flex-wrap: wrap;
 
-    img {
+    .quality-of-ourTea_decoaret-img {
       width: 40%;
       border-radius: 20px;
+      max-height: 450px;
+      overflow: hidden;
+      object-fit: cover;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
     }
 
     .quality-of-ourTea_text-part {
@@ -23,15 +31,15 @@
       height: auto;
 
       h2 {
-        font-size: 32px;
+        font-size: 1.55em;
         font-weight: 600;
         color: App.$secnd_main_color;
-        margin-bottom: 25px;
+        margin-bottom: 0.8em;
       }
 
       p {
-        font-size: 24px;
-        line-height: 36px;
+        font-size: 1.1em;
+        line-height: 1.5;
         color: App.$secnd_main_color;
         span {
           color: App.$third_main_color;
@@ -44,10 +52,102 @@
 
   .productList {
     width: 80%;
-    margin: 250px auto 90px auto;
+    margin: 7em auto 4.4em auto;
 
     @media (max-width: 926px) {
       width: 90%;
+    }
+  }
+
+  @media (max-width: 1700px) {
+    .list-all-goods_quality-of-ourTea {
+      width: 70%;
+      margin: 3em auto;
+
+      .quality-of-ourTea_text-part {
+        width: 55%;
+      }
+    }
+  }
+
+  @media (max-width: 1212px) {
+    .productList {
+      width: 60%;
+    }
+  }
+
+  @media (max-width: 1047px) {
+    .productList {
+      width: 70%;
+      display: flex;
+      flex-wrap: wrap;
+      grid-template-columns: none;
+      align-items: center;
+      .productList-card_product-map {
+        width: 45%;
+      }
+    }
+  }
+
+  @media (max-width: 924px) {
+    .list-all-goods_quality-of-ourTea {
+      .quality-of-ourTea_text-part {
+        h2 {
+          font-size: 1.3em;
+        }
+        p {
+          font-size: 16px;
+        }
+      }
+    }
+
+    .productList {
+      width: 80%;
+    }
+  }
+
+  @media (max-width: 813px) {
+    .productList {
+      width: 85%;
+    }
+  }
+
+  @media (max-width: 846px) {
+    .list-all-goods_quality-of-ourTea {
+      flex-direction: column;
+      width: 80%;
+      margin: 1em auto;
+      gap: 20px;
+
+      .quality-of-ourTea_decoaret-img {
+        width: 100%;
+        height: 25vh;
+        min-height: 100px;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .quality-of-ourTea_text-part {
+        width: 100%;
+      }
+    }
+  }
+
+  @media (max-width: 700px) {
+    .productList {
+      .productList-card_product-map {
+        width: 100%;
+      }
+    }
+  }
+
+  @media (max-width: 510px) {
+    .productList {
+      margin: 70px auto;
     }
   }
 }

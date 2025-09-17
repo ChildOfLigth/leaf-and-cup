@@ -12,7 +12,9 @@ export function ListOfAllGoods({functToChangeList}: PropsListOfAllGoods): JSX.El
   return (
     <div className="list-all-goods">
       <div className="list-all-goods_quality-of-ourTea">
-        <img src={decoratForTeaQualSection} alt="decoration-part" />
+        <div className="quality-of-ourTea_decoaret-img">
+          <img src={decoratForTeaQualSection} alt="decoration-img" />
+        </div>
 
         <div className="quality-of-ourTea_text-part">
           <h2>О качестве нашего чая</h2>

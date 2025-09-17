@@ -15,6 +15,7 @@ $font_family_company_name: "Edu NSW ACT Cursive", cursive;
   flex-direction: column;
   width: 90%;
   overflow: hidden;
+  position: relative;
   font-size: clamp(16px, 1vw + 3px, 32px);
 
   .present-block {
@@ -84,14 +85,12 @@ $font_family_company_name: "Edu NSW ACT Cursive", cursive;
               font-size: 3.94em;
               font-weight: bold;
               color: rgba(115, 103, 47, 70%);
-              z-index: 10;
             }
 
             h3 {
               font-size: 1.4em;
               line-height: 1.5;
               font-weight: 600;
-              z-index: 100;
             }
           }
 
@@ -155,36 +154,6 @@ $font_family_company_name: "Edu NSW ACT Cursive", cursive;
 
   .productList {
     margin: 6em auto;
-  }
-
-  @media (max-width: 415px) {
-    .productList {
-      li {
-        padding: 10px;
-
-        .productList_productData {
-          font-size: 14px;
-          .productList_name-prod {
-            font-size: 1em !important;
-          }
-
-          .productData_details {
-            margin: 0;
-            margin-bottom: 5px;
-          }
-        }
-
-        .productList_price-block {
-          .price-block_price {
-            font-weight: normal;
-          }
-        }
-
-        .productList_prodPhoto {
-          min-width: 85px;
-        }
-      }
-    }
   }
 }
 
@@ -261,11 +230,11 @@ $font_family_company_name: "Edu NSW ACT Cursive", cursive;
 }
 
 @media (max-width: 1224px) {
-.App {
-  .cafe-location {
-    width: 100%;
+  .App {
+    .cafe-location {
+      width: 100%;
+    }
   }
-}
 }
 
 @media (max-width: 1197px) {
@@ -357,43 +326,45 @@ $font_family_company_name: "Edu NSW ACT Cursive", cursive;
 @media (max-width: 850px) {
   .App {
     .present-block {
-      width: 100%;
-      flex-direction: column;
-      gap: 20px;
-      justify-content: left;
-      align-items: normal;
-      margin: 0;
-
-      .present-block_information-block {
-        width: 80%;
-        font-size: 16px;
-        margin: 0;
-        .information-block_title {
-          font-size: 1.4em;
-        }
-
-        .information-block_description {
-          margin: 16px 0;
-        }
-
-        .custom-btn {
-          width: 30% !important;
-          min-width: 155px;
-        }
-      }
-
-      .photo-for-presentBlock {
+      &.mobile-version {
         width: 100%;
-        height: clamp(110px, 8vh, 280px);
-        filter: none;
-        position: relative;
-        right: 0;
-        top: 0;
+        flex-direction: column-reverse;
+        gap: 20px;
+        justify-content: left;
+        align-items: normal;
+        margin: 0;
 
-        img {
+        .present-block_information-block {
+          width: 80%;
+          font-size: 16px;
+          margin: 0;
+          .information-block_title {
+            font-size: 1.4em;
+          }
+
+          .information-block_description {
+            margin: 16px 0;
+          }
+
+          .custom-btn {
+            width: 30% !important;
+            min-width: 155px;
+          }
+        }
+
+        .photo-for-presentBlock {
           width: 100%;
-          height: 100%;
+          height: clamp(110px, 8vh, 280px);
+          filter: none;
+          position: relative;
+          right: 0;
+          top: 0;
           object-fit: cover;
+
+          img {
+            width: 100%;
+            height: 100%;
+          }
         }
       }
     }
@@ -461,8 +432,10 @@ $font_family_company_name: "Edu NSW ACT Cursive", cursive;
 @media (max-width: 480px) {
   .App {
     .present-block {
-      .present-block_information-block {
-        width: 100%;
+      &.mobile-version {
+        .present-block_information-block {
+          width: 100%;
+        }
       }
     }
   }

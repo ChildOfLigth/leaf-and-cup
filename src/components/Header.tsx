@@ -13,8 +13,9 @@ export function Header({
   toggleModal,
 }: HeaderProps): JSX.Element {
   const location = useLocation();
-  const [activeClassLink, setActiveClassLink] = useState(false);
-  const [visibleMenuBurger, setVisibleMenuBurger] = useState(false);
+  const [activeClassLink, setActiveClassLink] = useState<boolean>(false);
+  const [visibleMenuBurger, setVisibleMenuBurger] = useState<boolean>(false);
+  const [openBurgenMenu, setOpenBurgenMenu] = useState<boolean>(false);
 
   function displayOfBurgerMenu() {
     setVisibleMenuBurger(window.innerWidth <= 742);
@@ -72,8 +73,8 @@ export function Header({
           ) : (
             <>
               <button
-                className="header-content_open-menu-burger"
-                onClick={() => toggleModal(!activeMenuBurger)}
+                className={openBurgenMenu ? "header-content_open-menu-burger open" : "header-content_open-menu-burger"}
+                onClick={() => {toggleModal(!activeMenuBurger); setOpenBurgenMenu(!openBurgenMenu)}}
               >
                 <span></span>
                 <span></span>
