@@ -76,7 +76,7 @@
     }
   }
 
-  @media (max-width: 1050px) {
+  @media (max-width: 1070px) {
     .productList {
       width: 70%;
       display: flex;
@@ -85,6 +85,7 @@
       align-items: center;
       .productList-card_product-map {
         width: 45%;
+        min-height: 335px;
       }
     }
   }

@@ -111,6 +111,7 @@
     .productList-card_product-map {
       width: 90%;
       max-height: 180px;
+      min-height: 174px !important;
       display: flex;
       flex-direction: row;
       align-items: center;
