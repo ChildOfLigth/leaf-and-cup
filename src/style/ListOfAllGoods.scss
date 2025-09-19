@@ -51,7 +51,7 @@
   }
 
   .productList {
-    width: 80%;
+    width: 90%;
     margin: 7em auto 4.4em auto;
 
     @media (max-width: 926px) {
@@ -121,7 +121,7 @@
 
       .quality-of-ourTea_decoaret-img {
         width: 100%;
-        height: 25vh;
+        height: App.$height-for-img-smallScreen;
         min-height: 100px;
 
         img {

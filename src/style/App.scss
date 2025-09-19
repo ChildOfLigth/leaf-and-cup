@@ -6,6 +6,7 @@ $frst_main_color: #73672f;
 $secnd_main_color: #535231;
 $third_main_color: #a0904b;
 $font_family_company_name: "Edu NSW ACT Cursive", cursive;
+$height-for-img-smallScreen: clamp(110px, 9vh, 280px);
 
 .App {
   background-color: white;
@@ -14,7 +15,6 @@ $font_family_company_name: "Edu NSW ACT Cursive", cursive;
   justify-content: center;
   flex-direction: column;
   width: 90%;
-  overflow: hidden;
   position: relative;
   font-size: clamp(16px, 1vw + 3px, 32px);
 
@@ -354,7 +354,7 @@ $font_family_company_name: "Edu NSW ACT Cursive", cursive;
 
         .photo-for-presentBlock {
           width: 100%;
-          height: clamp(110px, 8vh, 280px);
+          height: $height-for-img-smallScreen;
           filter: none;
           position: relative;
           right: 0;

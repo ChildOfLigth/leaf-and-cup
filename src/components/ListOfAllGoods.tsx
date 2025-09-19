@@ -1,6 +1,6 @@
 import { JSX, Dispatch, SetStateAction } from "react";
 import decoratForTeaQualSection from "../assets/imgs/photo-for-productList-component.webp";
-import { ProductList } from "./ProductList";
+import ProductList from "./ProductList";
 import { productsList, ProductObject } from "../productList.ts";
 import "../style/ListOfAllGoods.scss";
 
@@ -8,7 +8,7 @@ interface PropsListOfAllGoods {
   functToChangeList: Dispatch<SetStateAction<ProductObject[]>>,
 }
 
-export function ListOfAllGoods({functToChangeList}: PropsListOfAllGoods): JSX.Element {
+export default function ListOfAllGoods({functToChangeList}: PropsListOfAllGoods): JSX.Element {
   return (
     <div className="list-all-goods">
       <div className="list-all-goods_quality-of-ourTea">

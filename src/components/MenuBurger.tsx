@@ -1,12 +1,13 @@
-import { JSX } from "react";
+import { JSX, Dispatch, SetStateAction } from "react";
 import { Link } from "react-router";
 import "../style/MenuBurger.scss";
 
 interface MenuBurgerProps {
   activeMenuBurger: boolean;
+  toggleMenuBurger: Dispatch<SetStateAction<boolean>>;
 }
 
-export function MenuBurger({ activeMenuBurger }: MenuBurgerProps): JSX.Element {
+export default function MenuBurger({ activeMenuBurger, toggleMenuBurger }: MenuBurgerProps): JSX.Element {
   return (
     <div
       className="menu-burger"
@@ -14,9 +15,9 @@ export function MenuBurger({ activeMenuBurger }: MenuBurgerProps): JSX.Element {
     >
       <nav className="menu-burger_content-menu-burger">
         <div className="content-menu-burger_navigation">
-          <Link to="/leaf-and-cup">Главная</Link>
-          <Link to="/leaf-and-cup/list-of-allGoods">Весь асортимент</Link>
-          <Link to="/leaf-and-cup/wish-list" title="Перейти в список желаемого">
+          <Link onClick={() => toggleMenuBurger(!activeMenuBurger)} to="/leaf-and-cup">Главная</Link>
+          <Link onClick={() => toggleMenuBurger(!activeMenuBurger)} to="/leaf-and-cup/list-of-allGoods">Весь асортимент</Link>
+          <Link onClick={() => toggleMenuBurger(!activeMenuBurger)} to="/leaf-and-cup/wish-list" title="Перейти в список желаемого">
             Список желаемого
           </Link>
         </div>

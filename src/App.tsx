@@ -1,12 +1,13 @@
-import { Dispatch, JSX, SetStateAction, useState, useEffect } from "react";
-import { Routes, BrowserRouter, Route, useNavigate } from "react-router-dom";
+import { Dispatch, JSX, SetStateAction, useState, useEffect, useRef } from "react";
+import { Routes, BrowserRouter, Route, useNavigate, useLocation } from "react-router-dom";
 import { CustomButton } from "./components/CustomButton";
-import { ProductList } from "./components/ProductList.tsx";
-import { ListOfAllGoods } from "./components/ListOfAllGoods.tsx";
-import { Header } from "./components/Header.tsx";
-import { Footer } from "./components/Footer.tsx";
-import { WishList } from "./components/WishList.tsx";
-import { MenuBurger } from "./components/MenuBurger.tsx";
+import ProductList from "./components/ProductList.tsx";
+import ListOfAllGoods from "./components/ListOfAllGoods.tsx";
+import Header from "./components/Header.tsx";
+import Footer from "./components/Footer.tsx";
+import WishList from "./components/WishList.tsx";
+import MenuBurger  from "./components/MenuBurger.tsx";
+import ScrollToTopOnRouteChange from './components/ScrollToTopOnRouteChange.tsx';
 import { previewProducts, ProductObject } from "./productList.ts";
 import photoForPresentBlock from "./assets/imgs/photo-for-presentBlock.webp";
 import photoForAboutUs from "./assets/imgs/photo-for-aboutUs-block.webp";
@@ -21,8 +22,17 @@ interface AppPropsType {
 
 function AppContent({ funcChengeWishList }: AppPropsType): JSX.Element {
   const navigate = useNavigate();
-  const [activateMobileVersion, setActivateMobileVersion] =
-    useState<boolean>(false);
+  const [activateMobileVersion, setActivateMobileVersion] = useState<boolean>(false);
+  const location = useLocation();
+  const contactBlock = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (location.hash) {
+      if (contactBlock.current) {
+        contactBlock.current.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [location]);
 
   useEffect(() => {
     const activateMobileVersion = () => {
@@ -34,7 +44,7 @@ function AppContent({ funcChengeWishList }: AppPropsType): JSX.Element {
 
     return () => window.removeEventListener("resize", activateMobileVersion);
   }, []);
-
+  
   return (
     <main className="App">
       <div className={activateMobileVersion ? "present-block mobile-version" : 'present-block'}>
@@ -128,7 +138,7 @@ function AppContent({ funcChengeWishList }: AppPropsType): JSX.Element {
         </ul>
       </div>
 
-      <div className="cafe-location" id="cafe-location">
+      <div className="cafe-location" id="cafe-location" ref={contactBlock}>
         <div className="cafe-location_text-content">
           <h3>Найди свой любимый вкус чая в Leaf & Cup!</h3>
           <p>Киев ул. Броварская 33</p>
@@ -142,6 +152,7 @@ function AppContent({ funcChengeWishList }: AppPropsType): JSX.Element {
     </main>
   );
 }
+
 export default function App() {
   const [wishList, setWishList] = useState<ProductObject[]>(() => {
     const saved = localStorage.getItem("storage-with-wish-list");
@@ -156,6 +167,7 @@ export default function App() {
 
   return (
     <BrowserRouter>
+    <ScrollToTopOnRouteChange />
       <Header
         activeMenuBurger={activeMenuBurger}
         toggleModal={setActiveMenuBurger}
@@ -177,7 +189,7 @@ export default function App() {
         />
       </Routes>
 
-      <MenuBurger activeMenuBurger={activeMenuBurger} />
+      <MenuBurger activeMenuBurger={activeMenuBurger} toggleMenuBurger={setActiveMenuBurger}/>
       <Footer />
     </BrowserRouter>
   );

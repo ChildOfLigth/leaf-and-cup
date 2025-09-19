@@ -10,19 +10,24 @@ type ProductListProps = {
   functToChangeList?: Dispatch<SetStateAction<ProductObject[]>>;
 };
 
-export function ProductList({
-  arrayWithProducts,
-  functToChangeList,
-}: ProductListProps): JSX.Element {
+export default function ProductList({arrayWithProducts, functToChangeList}: ProductListProps): JSX.Element {
   const [activeBtn, setActiveBtn] = useState<number | null | undefined>(null);
 
   function addProdToWishList(id: number) {
-    const wishList = functToChangeList!((prev: ProductObject[]) => [
-      ...prev,
-      arrayWithProducts[id],
-    ]);
-    localStorage.setItem("storage-with-wish-list", JSON.stringify(wishList));
-  }
+  functToChangeList!((prev: ProductObject[]) => {
+    const exists = prev.some(prod => prod.id === id);
+    const newList = exists
+      ? prev 
+      : [...prev, arrayWithProducts[id]];
+
+    localStorage.setItem(
+      "storage-with-wish-list",
+      JSON.stringify(newList)
+    );
+
+    return newList;
+  });
+}
 
   return (
     <ul className="productList">
