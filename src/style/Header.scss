@@ -2,8 +2,8 @@
 
 header {
   width: 100%;
-  height: 8vh;
-  min-height: 70px;
+  height: 7vh;
+  min-height: 60px;
   display: flex;
   justify-content: center;
   position: sticky;
@@ -17,60 +17,51 @@ header {
     width: 90%;
     height: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     gap: 50px;
 
     .header-content_logo-block {
-      width: 4%;
+      width: 3%;
       min-width: 45px;
     }
 
     .header-content_navigation {
       display: flex;
       align-items: center;
-      width: 43%;
-      height: 80%;
-      min-width: 530px;
-      gap: 20px;
+      justify-content: space-between;
+      border-radius: 50px;
+      width: 25%;
+      height: 85%;
+      min-width: 450px;
 
-      .navigation_link-block {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        background-color: #d4cfb7;
-        border-radius: 50px;
-        width: 92%;
-        height: 85%;
-        padding: 20px 4.2em;
-
-        a {
-          font-size: 1em;
-          color: App.$frst_main_color;
-          transition: all 0.4s;
-          user-select: none;
-          cursor: pointer;
-        }
+      a {
+        font-size: 18px;
+        color: App.$frst_main_color;
+        transition: all 0.4s;
+        user-select: none;
+        cursor: pointer;
       }
 
       .navigation_navigate-to-wishList {
         width: 5.5%;
-        height: 100%;
+        height: auto;
         display: flex;
         align-items: center;
         justify-content: center;
 
         svg {
           height: 100%;
-          width: auto;
-          fill: App.$frst_main_color;
+          width: 100%;
           transition: all 0.3s;
           display: block;
+          fill: none;
+          stroke: App.$frst_main_color;
         }
 
         &.active {
           svg {
-            fill: App.$third_main_color;
+            fill: App.$frst_main_color;
           }
         }
       }
@@ -111,15 +102,12 @@ header {
       }
     }
 
-    @media (max-width: 742px) {
-      & {
-        justify-content: space-between;
-      }
-    }
-
     @media (max-width: 1424px) {
-      &.header-content_navigation {
-        width: 50%;
+      .header-content_navigation {
+
+        a {
+          font-size: 16px;
+        }
 
         .navigation_navigate-to-wishList {
           min-width: 30px;

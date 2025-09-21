@@ -7,22 +7,21 @@
 
   .list-all-goods_quality-of-ourTea {
     width: 60%;
-    margin: 0 auto;
+    margin: 60px auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
 
-    .quality-of-ourTea_decoaret-img {
-      width: 40%;
-      border-radius: 20px;
+    .quality-of-ourTea_decorate-img {
+      width: 43%;
       max-height: 450px;
-      overflow: hidden;
-      object-fit: cover;
 
       img {
         width: 100%;
         height: 100%;
+        border-radius: 20px;
+        object-fit: cover;
       }
     }
 
@@ -51,12 +50,8 @@
   }
 
   .productList {
-    width: 90%;
+    width: 80%;
     margin: 7em auto 4.4em auto;
-
-    @media (max-width: 926px) {
-      width: 90%;
-    }
   }
 
   @media (max-width: 1700px) {
@@ -70,9 +65,42 @@
     }
   }
 
-  @media (max-width: 1212px) {
+  @media (max-width: 1638px) {
+    .productList {
+      .productList-card_product-map {
+        .product-map_productData {
+          .productData_name-prod {
+            font-size: 1.2em;
+          }
+
+          .productData_details {
+            font-size: 1em;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 1224px) {
     .productList {
       width: 60%;
+
+      .productList-card_product-map {
+        gap: 20px;
+
+        .product-map_productData {
+          justify-content: space-between;
+          gap: 5px;
+
+          .productData_price-block {
+            .custom-btn {
+              img {
+                width: 20%;
+              }
+            }
+          }
+        }
+      }
     }
   }
 
@@ -120,16 +148,11 @@
       margin: 1em auto;
       gap: 20px;
 
-      .quality-of-ourTea_decoaret-img {
+      .quality-of-ourTea_decorate-img {
         width: 100%;
-        height: App.$height-for-img-smallScreen;
-        min-height: 100px;
-
-        img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
+        height: 8vh;
+        max-height: 300px;
+        min-height: 130px;
       }
 
       .quality-of-ourTea_text-part {

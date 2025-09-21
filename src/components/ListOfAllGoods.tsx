@@ -12,7 +12,7 @@ export default function ListOfAllGoods({functToChangeList}: PropsListOfAllGoods)
   return (
     <div className="list-all-goods">
       <div className="list-all-goods_quality-of-ourTea">
-        <div className="quality-of-ourTea_decoaret-img">
+        <div className="quality-of-ourTea_decorate-img">
           <img src={decoratForTeaQualSection} alt="decoration-img" />
         </div>
 

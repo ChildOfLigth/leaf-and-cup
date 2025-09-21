@@ -5,7 +5,7 @@ footer {
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding: 70px 0;
+  padding: 20px 0;
   font-size: clamp(16px, 1vw + 3px, 32px);
   background-color: App.$secnd_main_color;
   color: white;
@@ -92,7 +92,6 @@ footer {
   }
 
   @media (max-width: 908px) {
-    padding: 50px 0;
     .footer_content {
       width: 90%;
       gap: 90px;
@@ -101,7 +100,7 @@ footer {
 
   @media (max-width: 766px) {
     justify-content: flex-start;
-    padding: 20px 0;
+    padding-bottom: 0;
     font-size: 15px;
 
     .footer_content {

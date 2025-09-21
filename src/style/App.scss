@@ -9,7 +9,6 @@ $font_family_company_name: "Edu NSW ACT Cursive", cursive;
 $height-for-img-smallScreen: clamp(110px, 9vh, 280px);
 
 .App {
-  background-color: white;
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -18,6 +17,7 @@ $height-for-img-smallScreen: clamp(110px, 9vh, 280px);
   width: 90%;
   position: relative;
   font-size: clamp(16px, 1vw + 3px, 32px);
+  overflow-x: hidden;
 
   .present-block {
     display: flex;
@@ -155,6 +155,13 @@ $height-for-img-smallScreen: clamp(110px, 9vh, 280px);
 
   .productList {
     margin: 6em auto;
+    width: 90%;
+  }
+}
+
+@media (max-width: 1629px) {
+  .productList {
+    width: 80%;
   }
 }
 
@@ -235,11 +242,7 @@ $height-for-img-smallScreen: clamp(110px, 9vh, 280px);
     .cafe-location {
       width: 100%;
     }
-  }
-}
 
-@media (max-width: 1197px) {
-  .App {
     .productList {
       width: 100%;
       grid-template-columns: repeat(auto-fill, 280px);
@@ -437,6 +440,30 @@ $height-for-img-smallScreen: clamp(110px, 9vh, 280px);
         .present-block_information-block {
           width: 100%;
         }
+      }
+    }
+
+    .aboutUs {
+      .aboutUs_column {
+        li {
+          .column_text-content {
+            .text-content_title {
+              h3 {
+                font-size: 1em;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .productList {
+    .productList-card_product-map {
+      .product-map_productData {
+        gap: 20px;
       }
     }
   }

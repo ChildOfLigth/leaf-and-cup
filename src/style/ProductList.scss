@@ -2,11 +2,10 @@
 
 .productList {
   display: grid;
-  justify-content: space-between;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   align-items: stretch;
   width: 100%;
-  gap: 50px;
+  gap: 40px;
 
   .productList-card_product-map {
     background-color: rgba(115, 103, 47, 30%);
@@ -26,16 +25,17 @@
 
     .product-map_productData {
       text-align: center;
-      width: 90%;
+      width: 98%;
       height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
       margin: 0 auto;
+      gap: 10px;
 
       .productData_name-prod {
-        font-size: 1.14em;
+        font-size: 1.1em;
         font-weight: 600;
         margin-bottom: 0.5em;
       }
@@ -51,6 +51,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        margin-top: auto;
 
         .price-block_price {
           font-size: 1em;
@@ -66,9 +67,15 @@
           width: clamp(30px, 4vw, 45px);
           aspect-ratio: 1/1;
           border-radius: 50%;
+
           img {
             width: 40%;
             filter: invert(1);
+          }
+
+          svg {
+            width: 50%;
+            height: 50%;
           }
 
           &.completionOfFunction {
