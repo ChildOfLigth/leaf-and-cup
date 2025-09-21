@@ -2,7 +2,6 @@ import { JSX, Dispatch, SetStateAction, useState } from "react";
 import { CustomButton } from "./CustomButton";
 import { ProductObject } from "../productList.ts";
 import "../style/ProductList.scss";
-import iconForButton from "../assets/imgs/icons/iconToWishlist.svg";
 import iconAddProdToWishList from "../assets/imgs/icons/addProdToWishList.svg";
 
 type ProductListProps = {
