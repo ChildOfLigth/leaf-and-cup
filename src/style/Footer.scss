@@ -40,6 +40,7 @@ footer {
       flex-direction: column;
 
       a {
+        font-size: clamp(16px, 0.8em, 22px);
         color: white;
         line-height: 2;
         transition: all 0.4s;
@@ -53,18 +54,12 @@ footer {
     .content_social-media {
       width: 25%;
 
-      h4 {
-        color: App.$frst_main_color;
-        font-size: 1.12em;
-        font-weight: 600;
-        margin-bottom: 20px;
-      }
-
       .social-media_link {
         display: flex;
         align-items: center;
         gap: 10px;
         line-height: 2;
+        cursor: pointer;
 
         svg {
           width: 20px;
@@ -72,10 +67,8 @@ footer {
           fill: white;
         }
 
-        p {
-          font-size: inherit;
-          line-height: 33px;
-          cursor: pointer;
+        address {
+          font-size: clamp(16px, 0.8em, 22px);
         }
       }
     }

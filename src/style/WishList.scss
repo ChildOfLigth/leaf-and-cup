@@ -19,6 +19,7 @@
         font-size: 2.5em;
         font-weight: 600;
         line-height: 1.5;
+        color: App.$frst_main_color;
       }
 
       .text-content_description {
@@ -109,18 +110,6 @@
     margin-bottom: 50px;
   }
 
-  @media (max-width: 1608px) {
-    width: 90%;
-
-    .wish-list_page-description {
-      width: 100%;
-    }
-
-    .wish-list_products {
-      width: 80%;
-    }
-  }
-
   @media (max-width: 1418px) {
     .wish-list_page-description {
       .page-description_text-content {
@@ -179,7 +168,7 @@
 
       .page-description_text-content {
         .text-content_headline {
-          font-size: 1.5em;
+          font-size: 1.7em;
         }
 
         .text-content_description {
@@ -191,6 +180,13 @@
 
     .message-about-empty-list {
       font-size: 2.6em;
+    }
+  }
+
+  @media (max-width: 1068px) {
+    .wish-list_products {
+      width: 80%;
+      margin: 50px auto;
     }
   }
 
@@ -267,6 +263,13 @@
         justify-content: center;
         text-align: center;
         gap: 10px;
+        padding-top: 0;
+
+        .product-card_text-content {
+          .text-content_details {
+            font-size: 16px;
+          }
+        }
       }
     }
   }
